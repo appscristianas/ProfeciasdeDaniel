@@ -1,128 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solicitud de app Profecías de Daniel</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #F8ECCB;
-      color: #333;
-    }
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      background: #007aff;
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #005bb5;
-    }
-    .note {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 12px;
-    }
-    .app-icon {
-      width: 90px;
-      height: 90px;
-      border-radius: 20%;
-      margin: 0 auto 15px;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Apps</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.appscristianas.profeciasdedaniel";
+        });
+    </script>
 </head>
 <body>
-  <div class="container">
-    <img src="https://storage.appsrentables.com/6010c42442f12a0d159a27b2/profeciasdedaniel/ayuda/icono.png" alt="Icono de la app Profecías de Daniel" class="app-icon">
-
-    <h1>Solicitud de app de Profecías</h1>
-    <p>Llena este formulario para recibir el enlace de la app <b>Profecías de Daniel</b></p>
-    
-    <!-- FORMULARIO -->
-    <form id="solicitudForm">
-      <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
-      <input type="tel" id="telefono" name="telefono" placeholder="Tu Número (WhatsApp)" required>
-      <button type="submit">¡Solicitar Ahora!</button>
-    </form>
-
-    <p class="note">Al terminar la solicitud, verás la actividad <b>Las 4 bestias</b></p>
-    <p class="note">Te informaremos las novedades por WhatsApp</p>
-  </div>
-
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyp08TqSWfJyN3N1fg1iBGvE1ItlpBEWYtYoAkCGDjj3h84hdaluW2dz8dtahUu9-19/exec";
-
-    // Detectar sistema operativo
-    function detectarSO() {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      if (/android/i.test(userAgent)) return "Android";
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
-      return "Otro";
-    }
-
-    document.getElementById("solicitudForm").addEventListener("submit", async function(e){
-      e.preventDefault();
-
-      const nombre = document.getElementById("nombre").value.trim();
-      const telefono = document.getElementById("telefono").value.trim();
-      const sistema = detectarSO();
-
-      // Validar teléfono
-      const phoneRegex = /^[0-9]{8,15}$/;
-      if (!phoneRegex.test(telefono)) {
-        alert("Ingresa un teléfono válido (solo números, mínimo 8 dígitos).");
-        return;
-      }
-
-      try {
-        await fetch(scriptURL, {
-          method: "POST",
-          body: JSON.stringify({ nombre, telefono, sistema }),
-          headers: { "Content-Type": "application/json" },
-          mode: "no-cors"
-        });
-
-        window.location.href = "https://storage.appsrentables.com/6010c42442f12a0d159a27b2/profeciasdedaniel/gracias.html";
-      } catch (error) {
-        alert("No se pudo enviar tu solicitud, intenta de nuevo.");
-        console.error("Error:", error);
-      }
-    });
-  </script>
+    <p>Cargando Play Store...</p>
 </body>
 </html>
